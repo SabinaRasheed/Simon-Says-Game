@@ -16,6 +16,7 @@ document.addEventListener("keypress",function(){
 let h3=document.querySelector("h3");
 
 function levelUp(){
+    userSequence=[]; //set user sequence to empty whenever the level is finished
     level++;
     h3.innerHTML=`Level ${level}`;
 
@@ -51,9 +52,33 @@ function pressed(){
 
     console.log(`user pressed ${userBtn}`);
     console.log(`user sequence : ${userSequence}`);
+
+    checkSequence(userSequence.length-1);
 }
 
 let allButtons=document.querySelectorAll(".btn");
 for(button of allButtons){
     button.addEventListener("click",pressed);
+}
+
+function checkSequence(seqIndex){
+    if(userSequence[seqIndex] == gameSequence[seqIndex]){
+        if(userSequence.length == gameSequence.length){
+            setTimeout(levelUp,1000);
+        }
+    }else{
+        console.log("incorrect");
+        h3.innerHTML=`Game over ! your score was <b>${level}</b> <br> press any key to restart`;
+        document.querySelector("body").style.backgroundColor="red";
+        setTimeout(function(){
+            document.querySelector("body").style.backgroundColor="white";},400);
+            resetGame();
+    }
+}
+
+function resetGame(){
+    start=false;
+    gameSequence=[];
+    userSequence=[];
+    level=0;
 }
