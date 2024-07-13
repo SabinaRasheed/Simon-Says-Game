@@ -1,0 +1,41 @@
+h1 , h3{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+
+}
+
+.btn{
+    width: 170px;
+    height: 170px;
+    border-radius: 20%;
+    margin: 2rem;
+}
+
+.red{
+    background-color: #d95980;
+    border: 1px solid #d95980;
+}
+.purple{
+    background-color: #667fc9;
+    border: 1px solid #667fc9;
+}
+.yellow{
+    background-color: #f99b45;
+    border: 1px solid #f99b45;
+}
+.green{
+    background-color: #5cb578;
+    border: 1px solid #5cb578;
+}
+
+.flashbtn{
+    background-color: white;
+}
+
+.userFlash{
+    background-color: rgb(13, 126, 13);
+}
